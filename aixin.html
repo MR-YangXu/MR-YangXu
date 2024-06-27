@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>爱心绘制</title>
+</head>
+<body>
+    <canvas id="loveCanvas" width="300" height="300"></canvas>
+    <script>
+        // 创建一个画布元素
+        const canvas = document.createElement('canvas');
+        canvas.width = 400;  // 设置画布宽度
+        canvas.height = 400; // 设置画布高度
+        document.body.appendChild(canvas); // 将画布添加到文档中
+
+        // 获取画布的 2D 渲染上下文
+        const ctx = canvas.getContext('2d');
+
+        // 绘制男性小人
+        function drawMale(x, y, name) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // 绘制头部
+            ctx.beginPath();
+            ctx.arc(0, 0, 20, 0, Math.PI * 2); // 头部半径为20
+            ctx.fillStyle = '#ff9700'; // 绿色头发
+            ctx.fill();
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+            ctx.closePath();
+
+            // 绘制身体
+            ctx.beginPath();
+            ctx.moveTo(0, 20); // 移动到脖子位置
+            ctx.lineTo(0, 60); // 身体长度为40
+            ctx.strokeStyle = '#ff9700'; // 绿色
+            ctx.stroke();
+
+            // 绘制左臂
+            ctx.beginPath();
+            ctx.moveTo(0, 30); // 左臂起点
+            ctx.lineTo(-30, 40); // 左臂末端
+            ctx.stroke();
+
+            // 绘制右臂
+            ctx.beginPath();
+            ctx.moveTo(0, 30); // 右臂起点
+            ctx.lineTo(30, 40); // 右臂末端
+            ctx.stroke();
+
+            // 绘制左腿
+            ctx.beginPath();
+            ctx.moveTo(0, 60); // 左腿起点
+            ctx.lineTo(-15, 90); // 左腿末端
+            ctx.stroke();
+
+            // 绘制右腿
+            ctx.beginPath();
+            ctx.moveTo(0, 60); // 右腿起点
+            ctx.lineTo(15, 90); // 右腿末端
+            ctx.stroke();
+
+            // 绘制名字
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(name, 0, -25);
+
+            ctx.restore();
+        }
+
+        // 绘制女性小人
+        function drawFemale(x, y, name) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // 绘制头部
+            ctx.beginPath();
+            ctx.arc(0, 0, 20, 0, Math.PI * 2); // 头部半径为20
+            ctx.fillStyle = '#FFC0CB'; // 粉色头发
+            ctx.fill();
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+            ctx.closePath();
+
+            // 绘制身体
+            ctx.beginPath();
+            ctx.moveTo(0, 20); // 移动到脖子位置
+            ctx.lineTo(0, 60); // 身体长度为40
+            ctx.strokeStyle = '#FFC0CB'; // 粉色
+            ctx.stroke();
+
+            // 绘制左臂
+            ctx.beginPath();
+            ctx.moveTo(0, 30); // 左臂起点
+            ctx.lineTo(-30, 40); // 左臂末端
+            ctx.stroke();
+
+            // 绘制右臂
+            ctx.beginPath();
+            ctx.moveTo(0, 30); // 右臂起点
+            ctx.lineTo(30, 40); // 右臂末端
+            ctx.stroke();
+
+            // 绘制左腿
+            ctx.beginPath();
+            ctx.moveTo(0, 60); // 左腿起点
+            ctx.lineTo(-15, 90); // 左腿末端
+            ctx.stroke();
+
+            // 绘制右腿
+            ctx.beginPath();
+            ctx.moveTo(0, 60); // 右腿起点
+            ctx.lineTo(15, 90); // 右腿末端
+            ctx.stroke();
+
+            // 绘制名字
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(name, 0, -25);
+
+            ctx.restore();
+        }
+
+        // 绘制爱心
+        function drawHeart(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // 设置爱心的样式属性
+            ctx.fillStyle = 'red';
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 2;
+
+            // 开始绘制爱心
+            ctx.beginPath();
+            ctx.moveTo(0, 20); // 移动到爱心的起点
+            ctx.bezierCurveTo(0, 0, -20, -15, -40, -15); // 绘制左侧心型曲线
+            ctx.bezierCurveTo(-60, -15, -60, 22.5, -60, 22.5); // 绘制左侧心型尖端
+            ctx.bezierCurveTo(-60, 40, -40, 60, 0, 80); // 绘制底部心型曲线
+            ctx.bezierCurveTo(40, 60, 60, 40, 60, 22.5); // 绘制右侧心型曲线
+            ctx.bezierCurveTo(60, 22.5, 60, -15, 40, -15); // 绘制右侧心型尖端
+            ctx.bezierCurveTo(20, -15, 0, 0, 0, 20); // 回到爱心的起点
+            ctx.closePath(); // 封闭路径
+            ctx.fill(); // 填充爱心内部
+
+            ctx.restore();
+        }
+
+        // 绘制男性小人
+        drawMale(150, 200, "升宝宝");
+
+        // 绘制女性小人
+        drawFemale(250, 200, "欣宝宝");
+
+        // 绘制爱心连接两个小人
+        drawHeart(200, 200);
+
+
+    </script>
+</body>
+</html>
